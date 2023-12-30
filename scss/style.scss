@@ -1,0 +1,467 @@
+$main-blue: #02a0e1;
+$main-hover: #ffff00;
+$main-text: #fff;
+$main-black: #181e20;
+%big-title {
+  font-size: 4rem;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+@mixin flex($display, $direction, $justify, $align-items) {
+  display: $display;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align-items;
+}
+@font-face {
+  font-family: "Roboto";
+  src: local("Roboto Bold"), local("Roboto-Bold"),
+    url("../fonts/Roboto-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Roboto";
+  src: local("Roboto Italic"), local("Roboto-Italic"),
+    url("../fonts/Roboto-Italic.ttf") format("truetype");
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: local("Roboto"), local("Roboto-Regular"),
+    url("../fonts/Roboto-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+* {
+  box-sizing: border-box;
+}
+html {
+  font-size: 100%;
+  font-family: "Roboto", sans-serif;
+}
+html,
+body,
+.wrap {
+  min-height: 100%;
+}
+a,
+button {
+  text-decoration: none;
+  font-family: "Roboto", sans-serif;
+}
+ul,
+p,
+h1,
+h2,
+h3,
+body {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  list-style-type: none;
+}
+a,
+p,
+h1,
+h2,
+h3 {
+  line-height: 1.25;
+}
+.wrap__main {
+  flex: 1 1 auto;
+}
+.wrap {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+div[class$="__container"] {
+  width: 95%;
+  padding: 0 10px;
+  margin: 0 auto;
+}
+div[class$="__image"],
+div[class$="-image"] {
+  overflow: hidden;
+}
+img[class$="__img"],
+img[class$="-img"] {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.main-button {
+  @include flex(flex, row, center, center);
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 0.5em;
+  background-color: $main-blue;
+  border: 2px solid $main-blue;
+  color: $main-text;
+  transition-duration: 0.3s;
+  &:hover {
+    cursor: pointer;
+    background-color: $main-text;
+    color: $main-blue;
+  }
+}
+.wrap__header {
+  padding: 0.625rem;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 999;
+}
+.header {
+  box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.5);
+  min-height: 5.25rem;
+  width: 100%;
+  background-color: $main-text;
+  &__container {
+    @include flex(flex, row, space-between, center);
+  }
+  &__call-but {
+    font-size: 1rem;
+  }
+  &__logo-image {
+    height: 3.75rem;
+  }
+  &__menu-list {
+    display: flex;
+    font-size: 1.1rem;
+    gap: 1.5em;
+  }
+  &__menu-links {
+    position: relative;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 1.1rem;
+    color: $main-blue;
+    padding: 0;
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -0.3em;
+      left: 0;
+      background-color: $main-hover;
+      width: 0;
+      height: 3px;
+      transition-duration: 0.3s;
+    }
+    &:hover::after {
+      width: 100%;
+    }
+  }
+}
+.main__main-sreen {
+  padding-top: 5.25rem;
+}
+.main-screen {
+  background-color: $main-black;
+  &__text-block {
+    text-align: center;
+    margin: 0 auto 2rem;
+    width: 60%;
+  }
+  &__container {
+    padding: 3.125rem 10px !important;
+  }
+  &__title {
+    @extend %big-title;
+    margin-bottom: 0.3em;
+    color: $main-text;
+    & > span {
+      color: $main-hover;
+    }
+  }
+  &__subtitle {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: $main-text;
+  }
+  &__adv {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    width: 75%;
+    .mainscr-adv {
+      flex: 0 1 30%;
+      @include flex(flex, column, flex-start, center);
+      background-color: $main-text;
+      border-radius: 30px;
+      font-size: 1rem;
+      padding: 0.52em 0.7em;
+      &__image {
+        flex: 1 1 auto;
+        width: 2.5rem;
+        margin-bottom: 0.75rem;
+        img {
+          object-fit: contain !important;
+        }
+      }
+      &__text {
+        font-size: 1.2rem;
+      }
+    }
+  }
+  &__adv-el {
+    position: relative;
+  }
+}
+.main__services {
+  padding: 2rem 0;
+}
+.services {
+  &__text-block {
+    text-align: center;
+    width: 75%;
+    margin: 0 auto 2rem;
+  }
+  &__title {
+    @extend %big-title;
+    margin-bottom: 0.1em;
+  }
+  &__subtitle {
+    font-size: 1.5rem;
+  }
+  &__container {
+    padding: 0;
+  }
+  &__element {
+    position: relative;
+  }
+  &__el-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-flow: row;
+    gap: 5px;
+  }
+  .service-el {
+    overflow: hidden;
+    min-height: 20rem;
+    display: flex;
+    flex-direction: column;
+    &__text {
+      flex: 1 1 auto;
+      @include flex(flex, row, center, center);
+      font-size: 3rem;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: $main-text;
+    }
+    &__image {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      z-index: -2222;
+      filter: brightness(0.3);
+    }
+  }
+}
+.main__sale {
+  padding: 2rem 0;
+}
+.sale {
+  overflow: hidden;
+  background-color: $main-black;
+  &__container {
+    @include flex(flex, row, space-between, center);
+  }
+  &__image {
+    width: 50%;
+    align-self: flex-start;
+    transform: rotate(10deg);
+  }
+  &__text-block {
+    width: 40%;
+  }
+  &__title {
+    font-size: 2.8rem;
+    color: $main-text;
+    margin-bottom: 0.5em;
+  }
+  &__span {
+    color: $main-blue;
+    font-size: 3.5rem;
+  }
+  &__subtitle {
+    font-size: 1rem;
+    color: $main-text;
+    margin-bottom: 1em;
+  }
+  &__input {
+    outline: none;
+    border-radius: 50px;
+    border-width: 1px;
+    font-size: 1.2rem;
+    padding: 0.4em;
+    cursor: pointer;
+    margin-bottom: 1em;
+  }
+}
+.main__tecnics {
+  padding: 2rem 0;
+}
+.tecnics {
+  &__text-block {
+    text-align: center;
+    margin: 0 auto 2rem;
+    width: 70%;
+  }
+  &__title {
+    margin-bottom: 0.2em;
+    @extend %big-title;
+  }
+  &__subtitle {
+    font-size: 1.5rem;
+  }
+  &__block {
+    @include flex(flex, row, space-between, strech);
+  }
+  &__card {
+    padding: 1rem;
+  }
+  .tech-card {
+    flex: 0 1 30%;
+    border-radius: 20px;
+    border: 5px solid $main-blue;
+    @include flex(flex, column, flex-start, strech);
+    &__image {
+      width: 100%;
+      overflow: hidden;
+    }
+    &__img {
+      transition-duration: 0.3s;
+      cursor: zoom-in;
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+    &__text-block {
+      flex: 1 1 auto;
+      @include flex(flex, column, flex-end, strech);
+    }
+    &__title {
+      flex: 1 1 auto;
+      font-size: 1.5rem;
+      margin-bottom: 0.5em;
+    }
+    &__subtitle {
+      font-size: 1rem;
+    }
+  }
+}
+.main__questions {
+  padding: 2rem 0;
+}
+.questions {
+  background-color: $main-black;
+  &__text-block {
+    text-align: center;
+    margin: 0 auto 2rem;
+    width: 70%;
+  }
+  &__title {
+    @extend %big-title;
+    color: $main-text;
+    margin-bottom: 0.2em;
+  }
+  &__subtitle {
+    color: $main-text;
+    font-size: 1.5rem;
+  }
+}
+.accordion {
+  width: 90%;
+  margin: 0 auto;
+  &__header {
+    cursor: pointer;
+    background-color: $main-text;
+    @include flex(flex, row, space-between, center);
+    padding: 1em;
+    font-size: 1.2rem;
+    border-bottom: 1px solid $main-black;
+  }
+  &__head-text {
+    flex: 0 1 70%;
+  }
+  &__body {
+    display: none;
+  }
+}
+.wrap__footer {
+  padding: 2rem 0;
+  position: relative;
+}
+.footer {
+  overflow: hidden;
+  &__logo-image {
+    width: 15rem;
+    margin-bottom: 1em;
+  }
+  &__info {
+    padding: 0 4rem;
+    @include flex(flex, row, space-between, strech);
+  }
+  &__contacts-media {
+    @include flex(flex, row, flex-start, center);
+    gap: 1rem;
+    margin-bottom: 0.5em;
+  }
+  &__background-image {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    filter: brightness(0.1);
+    z-index: -99;
+  }
+  &__services-title,
+  &__contacts-title {
+    color: $main-text;
+    flex: 1 1 auto;
+    font-size: 2rem;
+    margin-bottom: 0.2em;
+  }
+  &__services-list-el {
+    font-size: 1rem;
+    &:not(:last-child) {
+      margin-bottom: 0.5em;
+    }
+  }
+  &__services-list-el > a,
+  &__contacts-phone,
+  &__contacts-email {
+    color: $main-text;
+    transition-duration: 0.3s;
+    &:hover {
+      color: $main-hover;
+    }
+  }
+  &__contacts-phone {
+    display: block;
+    margin-bottom: 0.5em;
+  }
+  &__contacts-media-image {
+    flex: 0 1 2rem;
+    cursor: pointer;
+    overflow: hidden;
+  }
+  &__contacts-media-img {
+    transition-duration: 0.3s;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+  &__contacts,
+  &__services {
+    @include flex(flex, column, flex-start, strech);
+  }
+}
