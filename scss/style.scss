@@ -158,6 +158,18 @@ img[class$="-img"] {
       width: 100%;
     }
   }
+  &__burger {
+    display: none;
+    flex: 0 0 3.5rem;
+  }
+  &__burger-line {
+    background-color: $main-blue;
+    height: 5px;
+    width: 100%;
+    &:not(:last-child) {
+      margin-bottom: 0.8rem;
+    }
+  }
 }
 .main__main-sreen {
   padding-top: 5.25rem;
@@ -239,6 +251,7 @@ img[class$="-img"] {
   &__el-block {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    align-items: stretch;
     grid-auto-flow: row;
     gap: 5px;
   }
@@ -261,6 +274,7 @@ img[class$="-img"] {
       left: 50%;
       transform: translate(-50%, -50%);
       width: 100%;
+      height: 100%;
       z-index: -2222;
       filter: brightness(0.3);
     }
@@ -382,20 +396,6 @@ img[class$="-img"] {
 .accordion {
   width: 90%;
   margin: 0 auto;
-  &__header {
-    cursor: pointer;
-    background-color: $main-text;
-    @include flex(flex, row, space-between, center);
-    padding: 1em;
-    font-size: 1.2rem;
-    border-bottom: 1px solid $main-black;
-  }
-  &__head-text {
-    flex: 0 1 70%;
-  }
-  &__body {
-    display: none;
-  }
 }
 .wrap__footer {
   padding: 2rem 0;
@@ -419,6 +419,7 @@ img[class$="-img"] {
   &__background-image {
     position: absolute;
     width: 100%;
+    height: 100%;
     top: 0;
     filter: brightness(0.1);
     z-index: -99;
@@ -463,5 +464,141 @@ img[class$="-img"] {
   &__contacts,
   &__services {
     @include flex(flex, column, flex-start, strech);
+  }
+}
+@media screen and (min-width: 1700px) {
+  html {
+    font-size: 120%;
+  }
+}
+@media screen and (max-width: 1220px) {
+  html {
+    font-size: 90%;
+  }
+}
+@media screen and (max-width: 1060px) {
+  html {
+    font-size: 85%;
+  }
+  .header {
+    &__menu-list {
+      display: none;
+    }
+    &__logo-image {
+      margin-right: auto;
+    }
+    &__burger {
+      display: block;
+    }
+    &__call-but {
+      margin-right: 2em;
+    }
+  }
+  .main-screen__title {
+    font-size: 3.5rem;
+  }
+  .tecnics {
+    &__block {
+      display: block;
+      width: 80%;
+      margin: 0 auto;
+    }
+    &__title {
+      font-size: 3.5rem;
+    }
+    &__card {
+      &:not(:last-child) {
+        margin-bottom: 1rem;
+      }
+    }
+    .tech-card {
+      &__image {
+        height: 15rem;
+        margin-bottom: 2rem;
+      }
+      &__img {
+        cursor: auto;
+        &:hover {
+          transform: scale(1);
+        }
+      }
+    }
+  }
+  .services {
+    &__title {
+      font-size: 3.5rem;
+    }
+    &__el-block {
+      display: block;
+      margin: 0 auto;
+    }
+  }
+  .questions__title {
+    font-size: 3.5rem;
+  }
+}
+@media screen and (max-width: 800px) {
+  .sale {
+    &__container {
+      display: block;
+    }
+    &__text-block {
+      width: 100%;
+      @include flex(flex, column, stretch, center);
+    }
+    &__form {
+      width: 100%;
+    }
+    &__input {
+      display: block;
+      width: 70%;
+      margin: 0 auto 1em;
+    }
+    &__title {
+      text-align: center;
+    }
+    &__image {
+      display: none;
+    }
+  }
+}
+@media screen and (max-width: 700px) {
+  html {
+    font-size: 80%;
+  }
+  .header {
+    &__call-but {
+      display: none;
+    }
+  }
+  .main-screen {
+    &__adv {
+      display: none;
+    }
+    &__text-block {
+      width: 90%;
+    }
+  }
+}
+@media screen and (max-width: 500px) {
+  .footer {
+    &__info {
+      display: block;
+    }
+    &__contacts,
+    &__services {
+      @include flex(flex, column, stretch, center);
+    }
+    &__services-list-el {
+      padding: 0.5em;
+    }
+    &__contacts-media {
+      justify-content: space-between;
+    }
+    &__contacts-phone,
+    &__contacts-title,
+    &__contacts-media {
+      margin-bottom: 1rem;
+    }
   }
 }
